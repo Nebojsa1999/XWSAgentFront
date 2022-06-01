@@ -6,6 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { OwnerPageComponent } from './owner-page/owner-page.component';
 import { PostReactionComponent } from './post-reaction/post-reaction.component';
+import { ReactionsComponent } from './reactions/reactions.component';
 import { RegisterComponent } from './register/register.component';
 import { SaveApiComponent } from './save-api/save-api.component';
 import { UnactivatedBusinessesComponent } from './unactivated-businesses/unactivated-businesses.component';
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path:'ownerPage',
     component: OwnerPageComponent
+  },
+  {
+    path:'reactions',
+    component: ReactionsComponent
   },
   { path: '', component: HomePageComponent },
   { path: '**', component: HomePageComponent }

@@ -57,7 +57,6 @@ export class SaveApiComponent implements OnInit {
          
         }).subscribe((response : any) => {
 
-          this.router.navigate(['/'])
         })
 
 

@@ -11,6 +11,7 @@ export class ReactionsComponent implements OnInit {
 jobId : any;
 data: any;
 user:any;
+
 displayedColumns: string[] = ['User','Business','Comment', 'Wage', 'InterViewImpression','Grade'];
   constructor(
     private route: ActivatedRoute,

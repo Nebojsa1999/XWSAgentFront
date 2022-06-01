@@ -71,7 +71,11 @@ getAllJobs(): any
 
 getReactionsByJobId(data:any): any
 {
-  return this.http.get(this.baseURL + "/api/job/getReactionsByJobId/" + data.Id ,data);
+  return this.http.get(this.baseURL + "/api/reaction/getReactionsByJobId/" + data.jobId ,data);
+}
+
+get(data:any):any{
+  return this.http.get(this.baseURL +"/api/job/getJob/" + data.id,data);
 }
 
 

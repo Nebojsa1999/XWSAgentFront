@@ -63,9 +63,6 @@ export class CreateBusinessComponent implements OnInit {
           Owner: this.user 
         }).subscribe((response : any) => {
 
-          this.router.navigate(['/'])
-        },(error:any) => {
-          this.errorMessage = error.error;
         });
 
 

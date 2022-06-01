@@ -71,7 +71,6 @@ export class CreateJobOfferComponent implements OnInit {
          
         }).subscribe((response : any) => {
 
-          this.router.navigate(['/'])
         });
 
 

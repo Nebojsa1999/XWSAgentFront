@@ -44,7 +44,6 @@ export class UnactivatedBusinessesComponent implements OnInit {
         businessId: id,
         owner: this.data.owner
       }).subscribe((response : any) => {
-          this.router.navigate(['/']);
        
       });
   }

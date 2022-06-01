@@ -85,10 +85,7 @@ export class UpdateBusinessesComponent implements OnInit {
           id: this.id
           
         }).subscribe((response : any) => {
-
-          this.router.navigate(['/'])
-        },(error:any) => {
-          this.errorMessage = error.error;
+          this.ngOnInit()
         });
 
 

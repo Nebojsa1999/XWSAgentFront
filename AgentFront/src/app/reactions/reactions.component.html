@@ -1,6 +1,7 @@
 
 <body>
     <div class="page">
+      <h1>Reactions:</h1>
       <mat-table mat-table [dataSource]="data">
                <ng-container matColumnDef="User">
                   <th mat-header-cell *matHeaderCellDef> User </th>
@@ -8,28 +9,43 @@
                 </ng-container>
                 <ng-container matColumnDef="Business">
                   <th mat-header-cell *matHeaderCellDef> Business </th>
-                  <td mat-cell *matCellDef="let reaction">{{reaction.business.name}} </td>
+                  <td mat-cell *matCellDef="let reaction">{{reaction.job.business.name}} </td>
                 </ng-container>
-                <ng-container matColumnDef="Business">
+                <ng-container matColumnDef="Comment">
                     <th mat-header-cell *matHeaderCellDef> Comment </th>
-                    <td mat-cell *matCellDef="let reaction">{{reaction.commment}} </td>
+                    <td mat-cell *matCellDef="let reaction">{{reaction.comment}} </td>
                   </ng-container>
-                  <ng-container matColumnDef="Business">
+                  <ng-container matColumnDef="Wage">
                     <th mat-header-cell *matHeaderCellDef> Wage </th>
                     <td mat-cell *matCellDef="let reaction">{{reaction.wage}} </td>
                   </ng-container>
-                  <ng-container matColumnDef="Business">
+                  <ng-container matColumnDef="InterViewImpression">
                     <th mat-header-cell *matHeaderCellDef> InterViewImpression </th>
-                    <td mat-cell *matCellDef="let reaction">{{reaction.interViewImpression}} </td>
+                    <td mat-cell *matCellDef="let reaction">{{reaction.interviewImpression}} </td>
                   </ng-container>
                 <ng-container matColumnDef="Grade">
                     <th mat-header-cell *matHeaderCellDef> Grade </th>
-                    <td mat-cell *matCellDef="let reaction">{{reaction.grade}} </td>
+                    <td mat-cell *matCellDef="let reaction">
+                      <p *ngIf="reaction.grade == 0  ; else one"> Lose(1)</p>
+                      <ng-template #one>
+                        <p *ngIf="reaction.grade == 1;else two">Zadovoljavajuce(2)</p>
+                     </ng-template> 
+                     <ng-template #two>
+                      <p *ngIf="reaction.grade == 2;else three">Dobro(3)</p>
+                   </ng-template> 
+                   <ng-template #three>
+                    <p *ngIf="reaction.grade == 3;else four">Veoma dobro(4)</p>
+                 </ng-template> 
+                 <ng-template #four>
+                  <p>Super(5)</p>
+               </ng-template> 
+                    </td>
                 </ng-container>
-              
               
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </mat-table>
+          <a [routerLink]="['/postReaction']"  [queryParams]="{id: jobId}" >React</a>
+
       </div>
   </body>

@@ -3,14 +3,14 @@
       </div>
       
       <div class="topnav">
-        <a href="/createBusiness">Crreate Business</a>
+        <a href="/createBusiness">Create Business</a>
 
       </div>
-    
+    <h1>Job offers:</h1>
     <mat-table mat-table [dataSource]="data">
         <ng-container matColumnDef="Business">
             <th mat-header-cell *matHeaderCellDef> Business </th>
-            <td mat-cell *matCellDef="let job">{{job.business.name}}</td>
+            <td mat-cell *matCellDef="let job">{{job.business?.name}}</td>
           </ng-container>
         <ng-container matColumnDef="Description">
            <th mat-header-cell *matHeaderCellDef> Description </th>
@@ -31,7 +31,7 @@
     <ng-container matColumnDef="View">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let job">
-          <a [routerLink]="['/reactions']"  [queryParams]="{id: job.id}" ></a>
+          <a [routerLink]="['/reactions']"  [queryParams]="{id: job.id}" >View react</a>
         </td>
     </ng-container> 
        

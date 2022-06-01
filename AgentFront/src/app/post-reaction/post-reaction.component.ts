@@ -15,7 +15,8 @@ export class PostReactionComponent implements OnInit {
   private formSubmitAttempt = false;
   public errorMessage : any; 
   user: any;
-  post:any;
+  jobId:any;
+  job:any;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -44,6 +45,16 @@ export class PostReactionComponent implements OnInit {
           this.router.navigate(['/home'], {queryParams: { permission: 'false' } });
 
         }
+
+        const jobIdString = this.route.snapshot.queryParamMap.get('id');
+        this.jobId = parseInt(jobIdString  || '{}');
+
+        this.api.get({
+          id:  this.jobId
+        }).subscribe((response:any)=>{
+          this.job = response
+        });
+
   }
 
   async onSubmit(): Promise<void> {
@@ -62,11 +73,10 @@ export class PostReactionComponent implements OnInit {
           InterviewImpression: interviewImpression,
           Grade: grade,
           User: this.user,
-          Post: this.post
+          Job: this.job
          
         }).subscribe((response : any) => {
 
-          this.router.navigate(['/'])
         });
 
 
