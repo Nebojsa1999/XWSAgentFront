@@ -1,0 +1,35 @@
+
+<body>
+    <div class="page">
+      <mat-table mat-table [dataSource]="data">
+               <ng-container matColumnDef="User">
+                  <th mat-header-cell *matHeaderCellDef> User </th>
+                  <td mat-cell *matCellDef="let reaction">{{reaction.user.name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Business">
+                  <th mat-header-cell *matHeaderCellDef> Business </th>
+                  <td mat-cell *matCellDef="let reaction">{{reaction.business.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Business">
+                    <th mat-header-cell *matHeaderCellDef> Comment </th>
+                    <td mat-cell *matCellDef="let reaction">{{reaction.commment}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="Business">
+                    <th mat-header-cell *matHeaderCellDef> Wage </th>
+                    <td mat-cell *matCellDef="let reaction">{{reaction.wage}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="Business">
+                    <th mat-header-cell *matHeaderCellDef> InterViewImpression </th>
+                    <td mat-cell *matCellDef="let reaction">{{reaction.interViewImpression}} </td>
+                  </ng-container>
+                <ng-container matColumnDef="Grade">
+                    <th mat-header-cell *matHeaderCellDef> Grade </th>
+                    <td mat-cell *matCellDef="let reaction">{{reaction.grade}} </td>
+                </ng-container>
+              
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </mat-table>
+      </div>
+  </body>

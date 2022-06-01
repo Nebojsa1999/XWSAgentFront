@@ -1,0 +1,40 @@
+<div class="page">
+  
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <h2>Update your business</h2>
+  
+          <mat-form-field class="full-width-input">
+            <input  class="form-control"   matInput [value]="business?.name"  placeholder="Name" formControlName="name" >
+            <mat-error>
+              Please provide a valid name
+            </mat-error>
+          </mat-form-field>
+        
+          <mat-form-field class="full-width-input">
+            <input  class="form-control"   matInput [value]="business?.contact" placeholder="Contact" formControlName="contact" >
+            <mat-error>
+              Contact is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width-input">
+            <input  class="form-control"   matInput value={{business?.jobDescription}}  placeholder="JobDescription" formControlName="jobDescription" >
+            <mat-error>
+              Job Description name is required
+            </mat-error>
+        </mat-form-field>
+          <mat-form-field class="full-width-input">
+            <input  class="form-control"   matInput value={{business?.jobCulture}}  placeholder="JobCulture" formControlName="jobCulture"  >
+            <mat-error>
+              Please provide a valid Job Culture
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <button mat-raised-button color="primary">Update</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
