@@ -35,13 +35,14 @@ export class CreateBusinessComponent implements OnInit {
     const userString = localStorage.getItem('user');
         if(userString == null) {
           this.router.navigate(['/login'], {queryParams: { login: 'false' } });
+          return;
         }
       
-        this.user = JSON.parse((userString) || '{}');
+        this.user = JSON.parse((userString));
         if(this.user.role != 2)
         {
           this.router.navigate(['/home'], {queryParams: { permission: 'false' } });
-
+          return;
         }
   }
 

@@ -67,7 +67,9 @@ export class LoginComponent implements OnInit {
             this.navigate();
 
           });
-        });
+        },(error:any) => {
+          this.errorMessage = error.error});
+
 
       } catch (err) {
         this.loginInvalid = true;

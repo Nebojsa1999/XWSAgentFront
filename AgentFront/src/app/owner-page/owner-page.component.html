@@ -4,10 +4,37 @@
       </div>
       
       <div class="topnav">
+        <a href="/ownerPage">Home</a>
         <a href="/updateBusiness">Update Business</a>
         <a href="/createJob">Create a Job offer</a>
         <a href="/saveApi">Input Api Key</a>
-
+        <a href="/home">Log out</a>
       </div>
-    
+      <h1>Job offers:</h1>
+      <mat-table mat-table [dataSource]="jobs">
+          <ng-container matColumnDef="Business">
+              <th mat-header-cell *matHeaderCellDef> Business </th>
+              <td mat-cell *matCellDef="let job">{{job.business?.name}}</td>
+            </ng-container>
+          <ng-container matColumnDef="Description">
+             <th mat-header-cell *matHeaderCellDef> Description </th>
+             <td mat-cell *matCellDef="let job">{{job.description}}</td>
+           </ng-container>
+           <ng-container matColumnDef="Position">
+             <th mat-header-cell *matHeaderCellDef> Position </th>
+             <td mat-cell *matCellDef="let job">{{job.position}} </td>
+          </ng-container>
+          <ng-container matColumnDef="DescriptionActivity">
+            <th mat-header-cell *matHeaderCellDef> Description Activity </th>
+            <td mat-cell *matCellDef="let job">{{job.descriptionActivity}} </td>
+          </ng-container>
+      <ng-container matColumnDef="Precondition">
+        <th mat-header-cell *matHeaderCellDef> Precondition </th>
+        <td mat-cell *matCellDef="let job">{{job.precondition}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>
+<h3>Api Key</h3>
+<mat-label>{{apikey?.apiKeyString}}</mat-label>
     </body>

@@ -58,7 +58,7 @@ const routes: Routes = [
     path:'reactions',
     component: ReactionsComponent
   },
-  { path: '', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent },
   { path: '**', component: HomePageComponent }
 ];
 

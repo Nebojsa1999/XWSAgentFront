@@ -79,4 +79,18 @@ get(data:any):any{
 }
 
 
+
+getJobsByUserId(data:any):any{
+  return this.http.get(this.baseURL + "/api/job/getJobsByUserId/" + data.id,data);
+}
+getApiKeyByUserId(data:any):any{
+  return this.http.get(this.baseURL + "/api/apiKey/getApiKeyByUserId/"+ data.id,data);
+}
+
+addJobDontShare(data:any)
+{
+  return this.http.post(this.baseURL + "/api/job/addJobWithoutPublish",data,this.getAuthHeader());
+
+}
+
 }

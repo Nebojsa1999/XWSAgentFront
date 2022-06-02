@@ -11,7 +11,7 @@ export class UnactivatedBusinessesComponent implements OnInit {
 
   data: any;
   user:any;
-  displayedColumns: string[] = ['Name', 'Contact', 'Button'];
+  displayedColumns: string[] = ['Business','Description', 'Position', 'DescriptionActivity','Precondition'];
   
   constructor(  private apiService: ApiService , 
     private router: Router) {
@@ -23,12 +23,13 @@ export class UnactivatedBusinessesComponent implements OnInit {
         const userString = localStorage.getItem('user');
         if(userString == null) {
           this.router.navigate(['/login'], {queryParams: { login: 'false' } });
+          return;
         }
       
-        this.user = JSON.parse((userString) || '{}');
+        this.user = JSON.parse((userString));
         if(this.user.role != 0){    
           this.router.navigate(['/home'], {queryParams: { permission: 'false' } });
-    
+          return;
         }
 
     this.apiService.getUnactivated().subscribe((response : any) => {

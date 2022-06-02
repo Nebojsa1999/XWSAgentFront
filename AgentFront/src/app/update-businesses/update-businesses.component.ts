@@ -41,12 +41,13 @@ export class UpdateBusinessesComponent implements OnInit {
     const userString = localStorage.getItem('user');
         if(userString == null) {
           this.router.navigate(['/login'], {queryParams: { login: 'false' } });
+          return;
         }
       
-        this.user = JSON.parse((userString) || '{}');
+        this.user = JSON.parse((userString));
         if(this.user.role != 1){    
           this.router.navigate(['/home'], {queryParams: { permission: 'false' } });
-    
+          return;
         }
       this.api.getBusinessByUser().subscribe((response : any) => {
       this.business = response;
