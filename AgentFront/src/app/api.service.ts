@@ -79,7 +79,6 @@ get(data:any):any{
 }
 
 
-
 getJobsByUserId(data:any):any{
   return this.http.get(this.baseURL + "/api/job/getJobsByUserId/" + data.id,data);
 }

@@ -78,7 +78,7 @@ export class PostReactionComponent implements OnInit {
           Job: this.job
          
         }).subscribe((response : any) => {
-
+          this.router.navigate(['/reactions'])
         });
 
 

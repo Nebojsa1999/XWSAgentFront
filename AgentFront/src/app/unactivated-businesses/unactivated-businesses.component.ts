@@ -11,7 +11,7 @@ export class UnactivatedBusinessesComponent implements OnInit {
 
   data: any;
   user:any;
-  displayedColumns: string[] = ['Business','Description', 'Position', 'DescriptionActivity','Precondition'];
+  displayedColumns: string[] = ['Name', 'Contact', 'Button'];
   
   constructor(  private apiService: ApiService , 
     private router: Router) {
@@ -45,7 +45,7 @@ export class UnactivatedBusinessesComponent implements OnInit {
         businessId: id,
         owner: this.data.owner
       }).subscribe((response : any) => {
-       
+        this.ngOnInit()
       });
   }
 
